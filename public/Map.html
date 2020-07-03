@@ -21,51 +21,28 @@
 <body>
 <div id="map"></div>
 <script src="https://unpkg.com/@antv/l7"></script>
-<script>
+<script type="module">
     const scene = new L7.Scene({
-        id: "map",
+        id: 'map',
         map: new L7.GaodeMap({
-            style: "dark", // 样式URL
-            center: [120.19382669582967, 30.258134],
-            pitch: 0,
-            zoom: 4
+            pitch: 35.210526315789465,
+            style: 'dark',
+            center: [104.288144, 31.239692],
+            zoom: 4.4,
+            token: '028606fffd2e740384871f0eedc153cb',
+            plugin: [],
         })
     });
-
-    fetch(
-        "https://gw.alipayobjects.com/os/rmsportal/oVTMqfzuuRFKiDwhPSFL.json"
-    )
-        .then(res => res.json())
-        .then(data => {
-            const pointLayer = new L7.PointLayer({})
-                .source(data.list, {
-                    parser: {
-                        type: "json",
-                        x: "j",
-                        y: "w"
-                    }
-                })
-                .shape("cylinder")
-                .size("t", function (level) {
-                    return [1, 2, level * 2 + 20];
-                })
-                .color("t", [
-                    "#094D4A",
-                    "#146968",
-                    "#1D7F7E",
-                    "#289899",
-                    "#34B6B7",
-                    "#4AC5AF",
-                    "#5FD3A6",
-                    "#7BE39E",
-                    "#A1EDB8",
-                    "#CEF8D6"
-                ])
-                .style({
-                    opacity: 1.0
-                });
-            scene.addLayer(pointLayer);
-        });
+    scene.on('loaded', () => {
+        const popup = new L7.Popup({
+            offsets: [0, 20]
+        }).setText('hello');
+        const marker = new L7.Marker()
+            .setLnglat([121.4316962, 31.26082325])
+            .setPopup(popup);
+        scene.addMarker(marker);
+        document.getElementsByClassName("l7-ctrl-logo")[0].style.visibility = 'hidden';
+    });
 </script>
 </body>
 </html>

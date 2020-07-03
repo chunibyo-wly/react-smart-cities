@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FullScreenContainer from "@jiaminghi/data-view-react/es/fullScreenContainer";
+import Header from "./components/Header";
+import Video from "./components/Video";
+import MapScene from "./components/Map";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <FullScreenContainer>
+            <div className="parent">
+                <div className="div1">
+                    <Header/>
+                </div>
+                <div className="div2"/>
+                <div className="div3"/>
+                <div className="div4"/>
+                <div className="div5 div-grid">
+                    <MapScene/>
+                </div>
+                <div className="div6 div-grid">
+                    <Video/>
+                </div>
+                <div className="div7"/>
+                <div className="div8"/>
+                <div className="div9"/>
+            </div>
+        </FullScreenContainer>
+    );
 }
 
 export default App;
