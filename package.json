@@ -10,10 +10,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.3.5",
+    "antd": "^4.5.4",
+    "echarts": "^4.8.0",
+    "echarts-for-react": "^2.0.16",
     "react": "^16.13.1",
     "react-amap": "^1.2.8",
+    "react-blocks": "^1.1.4",
     "react-dom": "^16.13.1",
+    "react-particle-line": "^0.1.9",
     "react-scripts": "3.4.1"
   },
   "scripts": {

@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import {Col, Row} from "antd";
+import {BorderBox9} from "@jiaminghi/data-view-react";
 
 class Video extends Component {
     state = {
@@ -7,9 +9,17 @@ class Video extends Component {
 
     render() {
         return (
-            <div>
-                <img src="http://127.0.0.1:8800/video_feed" alt="" style={{width: 800, height: 500}}/>
-            </div>
+            <Row align={'middle'} justify={'center'}>
+                <Col span={22}>
+                    {/*<BorderBox9>*/}
+                        <img src="http://192.168.0.167:5000/video_feed" alt=""
+                             style={{
+                                 width: "100%",
+                                 height: "auto",
+                             }}/>
+                    {/*</BorderBox9>*/}
+                </Col>
+            </Row>
         )
     }
 }

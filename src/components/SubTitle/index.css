@@ -1,0 +1,9 @@
+.subtitle {
+    color: #66D0C1;
+    font-family: "苹方", sans-serif;
+    margin-left: 13px;
+
+    border-left: 5px solid rgb(89, 141, 235);
+
+    padding-left: 8px;
+}
