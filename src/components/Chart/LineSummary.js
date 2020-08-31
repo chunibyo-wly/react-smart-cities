@@ -6,8 +6,8 @@ import ReactEcharts from "echarts-for-react";
 function LineSummary() {
     let bgColor = "#fff";
     let color = [
-        "#0090FF",
-        "#36CE9E",
+        "#435086",
+        "#7d7d8a",
         "#FFC005",
         "#FF515A",
         "#8B5CFF",
@@ -134,28 +134,28 @@ function LineSummary() {
                     shadowOffsetY: 8
                 }
             },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(
-                        0,
-                        0,
-                        0,
-                        1,
-                        [{
-                            offset: 0,
-                            color: hexToRgba(color[0], 0.3)
-                        },
-                            {
-                                offset: 1,
-                                color: hexToRgba(color[0], 0.1)
-                            }
-                        ],
-                        false
-                    ),
-                    shadowColor: hexToRgba(color[0], 0.1),
-                    shadowBlur: 10
-                }
-            },
+            // areaStyle: {
+            //     normal: {
+            //         color: new echarts.graphic.LinearGradient(
+            //             0,
+            //             0,
+            //             0,
+            //             1,
+            //             [{
+            //                 offset: 0,
+            //                 color: hexToRgba(color[0], 0.3)
+            //             },
+            //                 {
+            //                     offset: 1,
+            //                     color: hexToRgba(color[0], 0.1)
+            //                 }
+            //             ],
+            //             false
+            //         ),
+            //         shadowColor: hexToRgba(color[0], 0.1),
+            //         shadowBlur: 10
+            //     }
+            // },
             data: yAxisData1
         }, {
             name: "2019",
@@ -172,28 +172,28 @@ function LineSummary() {
                     shadowOffsetY: 8
                 }
             },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(
-                        0,
-                        0,
-                        0,
-                        1,
-                        [{
-                            offset: 0,
-                            color: hexToRgba(color[1], 0.3)
-                        },
-                            {
-                                offset: 1,
-                                color: hexToRgba(color[1], 0.1)
-                            }
-                        ],
-                        false
-                    ),
-                    shadowColor: hexToRgba(color[1], 0.1),
-                    shadowBlur: 10
-                }
-            },
+            // areaStyle: {
+            //     normal: {
+            //         color: new echarts.graphic.LinearGradient(
+            //             0,
+            //             0,
+            //             0,
+            //             1,
+            //             [{
+            //                 offset: 0,
+            //                 color: hexToRgba(color[1], 0.3)
+            //             },
+            //                 {
+            //                     offset: 1,
+            //                     color: hexToRgba(color[1], 0.1)
+            //                 }
+            //             ],
+            //             false
+            //         ),
+            //         shadowColor: hexToRgba(color[1], 0.1),
+            //         shadowBlur: 10
+            //     }
+            // },
             data: yAxisData2
         }]
     };

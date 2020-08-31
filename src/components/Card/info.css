@@ -4,3 +4,11 @@ p.attr {
     color: rgba(255, 255, 255, 0.7);
     font-family: "苹方", sans-serif;
 }
+
+span.k {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+span.v {
+    color: rgba(204, 192, 229, 0.7);
+}

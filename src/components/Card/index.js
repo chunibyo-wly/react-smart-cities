@@ -1,7 +1,8 @@
 import * as React from "react";
 import {BorderBox12, BorderBox5, BorderBox7} from "@jiaminghi/data-view-react";
 import {List, Row, Col, Avatar, Divider} from "antd";
-import './index.css'
+import './info.css'
+import Info from "./info";
 
 class PersonCard extends React.Component {
 
@@ -24,21 +25,22 @@ class PersonCard extends React.Component {
                         <Row align={'middle'} justify={'center'}>
                             <Col span={7} offset={2}>
                                 <Avatar
-                                    src={require("../../image/person.png")}
+                                    // src={require("../../image/person.png")}
+                                    src={"data:image/png;base64," + this.props.pedestrianAttribute["img"]}
                                     size={70}
                                 />
                             </Col>
                             <Col span={7} offset={1}>
-                                <p className={'attr'}>年龄: 中年</p>
-                                <p className={'attr'}>性别: 女</p>
-                                <p className={'attr'}>头发: 短发</p>
-                                <p className={'attr'}>帽子: 无</p>
+                                <Info k='年龄' v='中年'/>
+                                <Info k='性别' v='女'/>
+                                <Info k='头发' v='短发'/>
+                                <Info k='帽子' v='无'/>
                             </Col>
                             <Col span={7}>
-                                <p className={'attr'}>上装: 白色</p>
-                                <p className={'attr'}>下装: 黑</p>
-                                <p className={'attr'}>背包: 无</p>
-                                <p className={'attr'}>手提包: 无</p>
+                                <Info k='上装' v='白色'/>
+                                <Info k='下装' v='黑色'/>
+                                <Info k='背包' v='无'/>
+                                <Info k='手提包' v='无'/>
                             </Col>
                         </Row>
                     </div>
