@@ -50,7 +50,8 @@ class App extends React.Component {
             .then(response => response.text())
             .then(result => JSON.parse(result))
             .then(result => {
-                console.log(result)
+                while ((8 - result.length) > 0) result.push(undefined)
+                // console.log(result)
                 this.setState({personList: result})
             })
             .catch(error => console.log('error', error));
@@ -92,17 +93,19 @@ class App extends React.Component {
                                     }}
                                 >
                                     <Row justify={'center'} align={'middle'}>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
+                                        {
+                                            this.state.personList
+                                                .slice(0, 4)
+                                                .map(person => <PersonCard pedestrianAttribute={person}/>)
+                                        }
                                     </Row>
                                     <div style={{height: 10}}/>
                                     <Row justify={'center'} align={'middle'}>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
-                                        <PersonCard pedestrianAttribute={this.state.personList[0]}/>
+                                        {
+                                            this.state.personList
+                                                .slice(4, 8)
+                                                .map(person => <PersonCard pedestrianAttribute={person}/>)
+                                        }
                                     </Row>
                                 </div>
                             </div>
