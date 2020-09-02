@@ -1,6 +1,6 @@
 import * as React from "react";
-import {BorderBox12, BorderBox5, BorderBox7} from "@jiaminghi/data-view-react";
-import {List, Row, Col, Avatar, Divider} from "antd";
+import {BorderBox12} from "@jiaminghi/data-view-react";
+import {Row, Col, Avatar} from "antd";
 import './info.css'
 import Info from "./info";
 import {UserOutlined} from '@ant-design/icons';
@@ -15,22 +15,21 @@ class PersonCard extends React.Component {
                 <Row align={'middle'} justify={'center'}>
                     <Col span={7} offset={2}>
                         <Avatar
-                            // src={require("../../image/person.png")}
-                            src={"data:image/png;base64," + this.props.pedestrianAttribute["img"]}
+                            src={"data:image/png;base64," + this.props.pedestrianAttribute.img}
                             size={70}
                         />
                     </Col>
                     <Col span={7} offset={1}>
-                        <Info k='年龄' v='中年'/>
-                        <Info k='性别' v='女'/>
-                        <Info k='头发' v='短发'/>
-                        <Info k='帽子' v='无'/>
+                        <Info k='年龄' v={this.props.pedestrianAttribute["age"]}/>
+                        <Info k='性别' v={this.props.pedestrianAttribute["gender"]}/>
+                        <Info k='头发' v={this.props.pedestrianAttribute["hair length"]}/>
+                        <Info k='帽子' v={this.props.pedestrianAttribute["wearing hat"]}/>
                     </Col>
                     <Col span={7}>
-                        <Info k='上装' v='白色'/>
-                        <Info k='下装' v='黑色'/>
-                        <Info k='背包' v='无'/>
-                        <Info k='手提包' v='无'/>
+                        <Info k='上装' v={this.props.pedestrianAttribute["color of upper-body clothing"]}/>
+                        <Info k='下装' v={this.props.pedestrianAttribute["color of lower-body clothing"]}/>
+                        <Info k='背包' v={this.props.pedestrianAttribute["carrying bag"]}/>
+                        <Info k='手提包' v={this.props.pedestrianAttribute["carrying handbag"]}/>
                     </Col>
                 </Row>
         } else {

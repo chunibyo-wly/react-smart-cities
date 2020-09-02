@@ -11,7 +11,7 @@ import FunnelSummary from "./components/Chart/FunnelSummary";
 import CountNumberCalendar from "./components/Chart/CountNumberCalendar";
 import LineSummary from "./components/Chart/LineSummary";
 import PersonCard from "./components/Card";
-import {Row, Col} from "antd";
+import {Row} from "antd";
 import 'antd/dist/antd.css';
 
 class App extends React.Component {
@@ -19,7 +19,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            personList: [{}],
+            personList: [],
             pedestrianAmount: {
                 child: 0,
                 teenager: 0,
@@ -32,12 +32,34 @@ class App extends React.Component {
                 motorcycle: 0,
                 car: 0,
                 bicycle: 0
-            }
+            },
+            pedestrianAmountList: [0, 0, 0, 0, 0, 0, 0, 0],
+            vehicleAmountList: [0, 0, 0, 0, 0, 0, 0, 0]
         }
     }
 
     componentDidMount() {
         setInterval(() => this.getBoxData(), 5000)
+    }
+
+    countNumber(resultList, key, value) {
+        let cnt = 0
+        for (let i = 0; i < resultList.length; ++i) {
+            if (resultList[i] && key in resultList[i] && resultList[i][key] === value) cnt++
+        }
+        return cnt
+    }
+
+    sumNumber(resultMap) {
+        let sum = 0;
+        for (let key in resultMap) sum += resultMap[key]
+        return sum;
+    }
+
+    pushNumber(_list, _item) {
+        _list.shift()
+        _list.push(_item)
+        return _list
     }
 
     getBoxData() {
@@ -51,8 +73,28 @@ class App extends React.Component {
             .then(result => JSON.parse(result))
             .then(result => {
                 while ((8 - result.length) > 0) result.push(undefined)
-                // console.log(result)
-                this.setState({personList: result})
+                this.setState({
+                    personList: result,
+                    pedestrianAmount: {
+                        child: this.countNumber(result, "age", "小孩"),
+                        teenager: this.countNumber(result, "age", "青年"),
+                        adult: this.countNumber(result, "age", "成人"),
+                        oldPeople: this.countNumber(result, "age", "老人")
+                    },
+                    vehicleAmount: {
+                        trunk: 0,
+                        bus: 0,
+                        motorcycle: 0,
+                        car: 0,
+                        bicycle: 0
+                    }
+                })
+
+                let tempList = this.pushNumber(this.state.pedestrianAmountList, this.sumNumber(this.state.pedestrianAmount))
+                console.log(tempList)
+                this.setState({
+                    pedestrianAmountList: tempList
+                })
             })
             .catch(error => console.log('error', error));
     }
@@ -110,8 +152,12 @@ class App extends React.Component {
                                 </div>
                             </div>
                             <div className="div6 div-grid">
-                                <FunnelSummary/>
-                                <LineSummary/>
+                                <FunnelSummary
+                                    pedestrianAmount={this.state.pedestrianAmountList[this.state.pedestrianAmountList.length - 1]}/>
+                                <LineSummary
+                                    pedestrianAmountList={this.state.pedestrianAmountList}
+                                    vehicleAmountList={this.state.vehicleAmountList}
+                                />
                             </div>
                         </div>
                     </ReactParticleLine>

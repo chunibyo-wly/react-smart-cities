@@ -5,6 +5,9 @@ import SubTitle from "../SubTitle";
 class CountNumber extends React.Component {
 
     render() {
+
+        const maxValue = 20;
+
         const data = [
             {
                 name: "A",
@@ -61,7 +64,7 @@ class CountNumber extends React.Component {
             angleAxis: {
                 show: false,
                 min: 0,
-                max: 100,
+                max: maxValue,
                 clockwise: false
             },
             radiusAxis: {
@@ -70,10 +73,10 @@ class CountNumber extends React.Component {
                     interval: 0,
                     color: 'rgba(255, 255, 255, 0.7)',
                     fontSize: 11,
-                    formatter: '{value}%',
+                    formatter: '{value}',
                     fontFamily: 'Monaco',
                     align: 'left',
-                    margin: -8
+                    margin: -10
                 },
                 axisLine: {
                     show: false
@@ -102,7 +105,7 @@ class CountNumber extends React.Component {
                     type: 'bar',
                     coordinateSystem: 'polar',
                     color: 'rgba(255, 255, 255, 0.05)',
-                    data: [75, 0, 0, 0],
+                    data: [maxValue * 0.75, 0, 0, 0],
                     barGap: "-100%",
                     zlevel: -10,
                     roundCap: true
@@ -119,7 +122,7 @@ class CountNumber extends React.Component {
                     type: 'bar',
                     coordinateSystem: 'polar',
                     color: 'rgba(255, 255, 255, 0.05)',
-                    data: [0, 75, 0, 0],
+                    data: [0, maxValue * 0.75, 0, 0],
                     barGap: "-100%",
                     zlevel: -10,
                     roundCap: true
@@ -136,7 +139,7 @@ class CountNumber extends React.Component {
                     type: 'bar',
                     coordinateSystem: 'polar',
                     color: 'rgba(255, 255, 255, 0.05)',
-                    data: [0, 0, 75, 0],
+                    data: [0, 0, maxValue * 0.75, 0],
                     barGap: "-100%",
                     zlevel: -10,
                     roundCap: true
@@ -153,7 +156,7 @@ class CountNumber extends React.Component {
                     type: 'bar',
                     coordinateSystem: 'polar',
                     color: 'rgba(255, 255, 255, 0.05)',
-                    data: [0, 0, 0, 75],
+                    data: [0, 0, 0, maxValue * 0.75],
                     barGap: "-100%",
                     zlevel: -10,
                     roundCap: true
